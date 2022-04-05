@@ -1,0 +1,45 @@
+.Moto {
+  display: inline-block;
+  width: 400px;
+  text-align: center;
+  padding: 2px;
+  font-style: 24px;
+  margin: 0 10px 50px 10px;
+
+  /* margin-bottom: 50px; */
+}
+
+.Moto:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: rgb(255, 89, 0);
+  transition: 500ms;
+}
+
+.Moto__imgMoto {
+  width: 95%;
+}
+
+.Moto__button {
+  font-family: 'Roboto Condensed', sans-serif;
+  width: 90%;
+  /*s color: red; */
+  background: rgb(255, 89, 0);
+  padding: 5px;
+  margin-bottom: 5%;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Moto__button:hover {
+  background: rgb(255, 60, 0);
+}
+
+.Moto.buy > button {
+  background: rgb(162, 152, 150);
+  color: white;
+}
+
+.Moto.buy > button:hover {
+  background: rgb(135, 127, 125);
+  color: white;
+}

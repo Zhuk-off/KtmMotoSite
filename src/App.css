@@ -1,38 +1,56 @@
-.App {
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('./fonts/Bebas\ Neue\ Cyrillic.ttf');
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Bebas Neue';
+  margin-bottom: 10px;
+}
+h1 {
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+}
+h2 {
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+}
+h3 {
+  font-family: 'Bebas Neue';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.pageHeading {
+  color: #fff;
+  height: 400px;
+  width: 100%;
+  background-image: url(../public/img/bg.jpeg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pageHeading__text {
   text-align: center;
+  padding-top: 150px;
+  letter-spacing: 0.5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.motoList {
+  /* display: inline-block; */
+  text-align: center;
+  /* justify-content: center; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.listBuy {
+  text-align: left;
 }

@@ -1,0 +1,12 @@
+.MotoInList {
+  display: block;
+}
+
+.MotoInList__img {
+  display: inline-block;
+  height: 100px;
+}
+
+.MotoInList__name {
+  display: inline-block;
+}
