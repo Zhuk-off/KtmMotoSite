@@ -8,6 +8,9 @@
 
   /* margin-bottom: 50px; */
 }
+.Moto h2 {
+  padding-top: 20px;
+}
 
 .Moto:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

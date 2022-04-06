@@ -1,30 +1,31 @@
-import React from 'react'
-import classes from './MotoBar.css'
+import React from 'react';
+import classes from './MotoBar.css';
+import { NavLink } from 'react-router-dom';
 
 export default (props) => {
   return (
     <div className="motoBar">
       <div className="tab">
-        <a href="#">MX</a>
+        <NavLink to="/mx">MX</NavLink>
       </div>
       <div className="tab">
-        <a href="#">Enduro</a>
+        <NavLink to="/enduro">Enduro</NavLink>
       </div>
       <div className="tab">
-        <a href="#">Freeride</a>
+        <NavLink to="/freeride">Freeride</NavLink>
       </div>
-      <div className="tab active">
-        <a href="#">Naked</a>
-      </div>
-      <div className="tab ">
-        <a href="#">Travel</a>
+      <div className="tab">
+        <NavLink to="/naked">Naked</NavLink>
       </div>
       <div className="tab ">
-        <a href="#">Sport Tourer</a>
+        <NavLink to="/travel">Travel</NavLink>
       </div>
       <div className="tab ">
-        <a href="#">Supermoto</a>
+        <NavLink to="/sport-tourer">Sport Tourer</NavLink>
+      </div>
+      <div className="tab ">
+        <NavLink to="/supermoto">Supermoto</NavLink>
       </div>
     </div>
-  )
-}
+  );
+};

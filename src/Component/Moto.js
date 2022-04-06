@@ -17,9 +17,9 @@ export default (props) => {
     <div className={motoClasses}>
       <h2>{props.name}</h2>
       <img className="Moto__imgMoto" src={props.img} />
-      <button className="Moto__button" onClick={props.buttonClickHandler}>
+      {/* <button className="Moto__button" onClick={props.buttonClickHandler}>
         {props.buy ? 'Перейти к оформлению' : 'Купить'}
-      </button>
+      </button> */}
     </div>
   );
 };

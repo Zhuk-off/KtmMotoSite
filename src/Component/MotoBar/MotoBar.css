@@ -25,6 +25,6 @@
   transition: all 0.1s;
 }
 
-.tab.active a {
+.active {
   border-bottom: 3px solid #f60;
 }

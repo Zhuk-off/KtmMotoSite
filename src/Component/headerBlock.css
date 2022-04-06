@@ -1,0 +1,15 @@
+.pageHeading {
+  color: #fff;
+  height: 400px;
+  width: 100%;
+  /* background-image: url(http://ktm.by/images/made/images/bg/2473/1290-SUPER-DUKE-R-2020-cover_9ce85919cbd46a4022465d28e61bb66a.jpeg); */
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pageHeading__text {
+  text-align: center;
+  padding-top: 150px;
+  letter-spacing: 0.5px;
+}
