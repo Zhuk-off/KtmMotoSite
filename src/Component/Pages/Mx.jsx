@@ -5,7 +5,6 @@ import { MotoList } from '../MotoList';
 
 const Mx = (props) => {
   const moto = props.moto;
-  console.log(moto.length);
   return (
     <div>
       <Header
@@ -16,7 +15,7 @@ const Mx = (props) => {
       />
       <MotoBar />
 
-      <MotoList moto={moto} />
+      <MotoList moto={moto} category={props.category} />
     </div>
   );
 };

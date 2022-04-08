@@ -1,24 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ListBuy from './ListBuy';
 import Moto from './Moto';
 import './MotoList.css';
 
 const MotoList = (props) => {
   const moto = props.moto;
-  console.log(moto);
-  let goToBasket = false;
+
+  function motoClickHandler(id) {
+    console.log(id);
+  }
 
   return (
     <div className="motoList">
       {moto.map((moto) => {
         return (
-          <Moto
-            key={moto.id}
-            name={moto.name}
-            img={moto.photolink}
-            buy={moto.buy}
-            buttonClickHandler={() => this.buttonClickHandler(moto.id)}
-          />
+          <Link key={moto.id} to={`/${moto.category}/${moto.id}`} moto={moto}>
+            <Moto
+              key={moto.id}
+              name={moto.name}
+              img={moto.photolink}
+              buy={moto.buy}
+              buttonClickHandler={() => this.buttonClickHandler(moto.id)}
+              motoClickHandler={() => this.motoClickHandler(moto.id)}
+            />
+          </Link>
         );
       })}
     </div>

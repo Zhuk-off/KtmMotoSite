@@ -1,7 +1,7 @@
-import './headerBlock.css';
+import './Header.css';
 
 const Header = (props) => {
-  let models = 'моделей';
+  let models;
   switch (props.length) {
     case 1:
       models = 'модель';
@@ -14,6 +14,9 @@ const Header = (props) => {
     default:
       models = 'моделей';
       break;
+  }
+  if (props.length === undefined) {
+    models = '';
   }
   return (
     <div

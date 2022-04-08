@@ -5,6 +5,7 @@
   padding: 2px;
   font-style: 24px;
   margin: 0 10px 50px 10px;
+  cursor: pointer;
 
   /* margin-bottom: 50px; */
 }
@@ -16,6 +17,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   color: rgb(255, 89, 0);
   transition: 500ms;
+}
+
+.Moto:active {
+  box-shadow: none;
 }
 
 .Moto__imgMoto {
