@@ -728,6 +728,10 @@ class App extends Component {
           />
           <Route path="/mx/:id" element={<MotoCard moto={this.state.moto} />} />
           <Route
+            path="/mx/:id/order"
+            element={<Order moto={this.state.moto} />}
+          />
+          <Route
             path="/enduro"
             element={
               <Mx
@@ -743,6 +747,10 @@ class App extends Component {
           <Route
             path="/enduro/:id"
             element={<MotoCard moto={this.state.moto} />}
+          />
+          <Route
+            path="/enduro/:id/order"
+            element={<Order moto={this.state.moto} />}
           />
           <Route
             path="/freeride"
@@ -762,6 +770,10 @@ class App extends Component {
             element={<MotoCard moto={this.state.moto} />}
           />
           <Route
+            path="/freeride/:id/order"
+            element={<Order moto={this.state.moto} />}
+          />
+          <Route
             path="/naked"
             element={
               <Mx
@@ -777,6 +789,10 @@ class App extends Component {
           <Route
             path="/naked/:id"
             element={<MotoCard moto={this.state.moto} />}
+          />
+          <Route
+            path="/naked/:id/order"
+            element={<Order moto={this.state.moto} />}
           />
           <Route
             path="/sport-tourer"
@@ -796,10 +812,14 @@ class App extends Component {
             element={<MotoCard moto={this.state.moto} />}
           />
           <Route
+            path="/sport-tourer/:id/order"
+            element={<Order moto={this.state.moto} />}
+          />
+          <Route
             path="/supermoto"
             element={
               <Mx
-                category={'upermoto'}
+                category={'Supermoto'}
                 description={''}
                 moto={this.motoCategoryFilter('supermoto')}
                 background={
@@ -811,6 +831,10 @@ class App extends Component {
           <Route
             path="/supermoto/:id"
             element={<MotoCard moto={this.state.moto} />}
+          />
+          <Route
+            path="/supermoto/:id/order"
+            element={<Order moto={this.state.moto} />}
           />
           <Route
             path="/travel"
