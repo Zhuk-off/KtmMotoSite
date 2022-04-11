@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ListBuy from './ListBuy';
 import Moto from './Moto';
 import './MotoList.css';
 

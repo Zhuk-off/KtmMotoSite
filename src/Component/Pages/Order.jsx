@@ -1,16 +1,56 @@
 import { useParams, Link } from 'react-router-dom';
+import { Component } from 'react';
+import { Input } from '../ElementPage/Input';
 import { Header } from '../Header';
 import './Order.css';
+import { render } from '@testing-library/react';
 
 const Order = (props) => {
+  // this.state = { test: 'test state' };
   const { id } = useParams();
   const moto = props.moto.find((moto) => moto.id === id);
+  const state = {
+    email: {
+      value:'',
+      type: 'email',
+      errorMessage: 'Введите корректный Email',
+      valid: false,
+      touched: false,
+      validation: {
+        required: true,
+        minLength: 7,
+      }
 
-  console.log(moto, id, moto.background);
+    },
+    phone: {
+      value:'',
+      type: 'tel',
+      errorMessage: 'Введите корректный номер',
+      valid: false,
+      touched: false,
+      validation: {
+        required: true,
+        email: true,
+      }
+
+    },
+  }
+
+  const submitHandler = (event) => {
+    event.preventDafault();
+    console.log(event);
+    debugger;
+  };
+
+  const submitButtonHandler = (event) => {
+    console.log('submitButtonHandler');
+    // debugger;
+  };
+
   return (
     <div className="order">
       <Header background={moto.background} />
-      <form action="#" className="order__form">
+      <form className="order__form" onSubmit={submitHandler}>
         <div className="order__container">
           <div className="order__img">
             <img src={moto.photolink} alt={moto.name} />
@@ -18,28 +58,29 @@ const Order = (props) => {
           <div className="order__userInfo">
             <Link to={`/${moto.category}/${id}`}>
               <div className="order__back">
-                <a href={`/${moto.category}/${id}`}>x</a>
+                <p>x</p>
               </div>
             </Link>
-
             <h2>Обратная связь</h2>
-
-            <input type="text" id="userName" placeholder="Ваши имя и фамилия" />
-
-            <input
+            <Input type="text" id="userName" placeholder="Ваши имя и фамилия" />
+            <Input
               type="tel"
               id="phone"
               placeholder="Номер телефона*"
               name="phone"
             />
+            <Input type="email" id="email" placeholder="Ваш email*" />
+            <textarea
+              id="message"
+              rows="2"
+              cols="5"
+              defaultValue={`Я хочу приобрести мотоцикл ${moto.name}`}
+            ></textarea>
 
-            <input type="email" id="email" placeholder="Ваш email*" />
-
-            <textarea id="message" rows="2" cols="5">
-              {`Я хочу приобрести мотоцикл ${moto.name}`}
-            </textarea>
-
-            <button type="submit">Отправить заявку</button>
+            <button type="submit" onClick={submitButtonHandler}>
+              {/* <button type="submit"> */}
+              Отправить заявку
+            </button>
           </div>
         </div>
       </form>

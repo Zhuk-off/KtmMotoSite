@@ -35,7 +35,7 @@
   width: 400px;
   height: 400px;
 }
-
+/* 
 .order__userInfo input {
   font-size: larger;
   color: #888;
@@ -45,6 +45,9 @@
   width: 95%;
   box-sizing: border-box;
 }
+.order__userInfo input:focus {
+  border: 1px solid #000;
+} */
 .order__userInfo textarea {
   font-size: larger;
   color: #888;
@@ -54,6 +57,9 @@
   width: 95%;
   padding: 10px;
   margin-bottom: 10px;
+}
+.order__userInfo textarea:focus {
+  border: 1px solid #000;
 }
 
 .order__back {
@@ -79,6 +85,6 @@
   background-color: rgb(225, 224, 224);
 }
 
-.order__back a {
+.order__back p {
   color: #888;
 }
