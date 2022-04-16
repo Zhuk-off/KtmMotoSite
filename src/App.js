@@ -5,46 +5,28 @@ import { Routes, Route } from 'react-router-dom';
 import { Mx } from './Component/Pages/Mx';
 import { MotoCard } from './Component/Pages/MotoCard';
 import { Order } from './Component/Pages/Order';
-import axios from 'axios';
-import MotoBar from './Component/MotoBar/MotoBar';
+import { fetchMotoData } from './store/actions/action';
+import { connect } from 'react-redux';
+import { PageNotFound } from './Component/Pages/PageNotFound';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-    };
-  }
-
   motoCategoryFilter = (category) => {
-    let moto = [...this.state.moto];
-    moto = moto.filter((bike) => bike.category === category);
-    // console.log(moto, category);
+    let moto = [...this.props.moto];
+    moto =
+      category === '/'
+        ? moto
+        : moto.filter((bike) => bike.category === category);
+
     return moto;
   };
 
-  async componentDidMount() {
-    try {
-      const response = await axios.get(
-        'https://ktmmoto-8b132-default-rtdb.europe-west1.firebasedatabase.app/moto/state.json'
-      );
-      const newState = response.data;
-      this.setState({
-        moto: newState.moto,
-        loading: false,
-        page: newState.page,
-      });
-      console.log('newState', newState);
-    } catch (e) {
-      console.log(e);
-    }
+  componentDidMount() {
+    this.props.fetchMotoData();
   }
 
   renderPages() {
-    console.log('renderPages');
-    let moto = [...this.state.moto];
-    const page = [...this.state.page];
-    // console.log(JSON.stringify(page));
+    let moto = [...this.props.moto];
+    const page = [...this.props.page];
     return (
       <React.Fragment>
         <Routes>
@@ -53,7 +35,7 @@ class App extends Component {
               return (
                 <React.Fragment key={page.id}>
                   <Route
-                    key={this.index}
+                    // key={this.index}
                     path={page.path}
                     element={
                       <Mx
@@ -66,24 +48,25 @@ class App extends Component {
                     }
                   />
                   <Route
-                    key={this.index}
+                    // key={this.index}
                     path={`${page.path}/:id`}
                     element={
-                      <MotoCard key={this.index} moto={this.state.moto} />
+                      <MotoCard key={this.index} moto={this.props.moto} />
                     }
                   />
                   <Route
-                    key={this.index}
+                    // key={this.index}
                     path={`${page.path}/:id/order`}
-                    element={<Order key={this.index} moto={this.state.moto} />}
+                    element={<Order key={this.index} moto={this.props.moto} />}
                   />
                 </React.Fragment>
               );
             } else {
+              console.log('location /');
               return (
                 <React.Fragment key={page.id}>
                   <Route
-                    key={this.index}
+                    // key={this.index}
                     path={page.path}
                     element={
                       <Mx
@@ -99,22 +82,35 @@ class App extends Component {
               );
             }
           })}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </React.Fragment>
     );
   }
 
   render() {
-    console.log('render');
-    console.log('state===', this.state);
-    console.log('state.loading===', this.state.loading);
-
     return (
       <div className="App">
-        {this.state.loading ? null : this.renderPages()}
+        {this.props.loading && this.props.page.length !== 0
+          ? null
+          : this.renderPages()}
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    loading: state.generalReducer.loading,
+    moto: state.generalReducer.moto,
+    page: state.generalReducer.page,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchMotoData: () => dispatch(fetchMotoData()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

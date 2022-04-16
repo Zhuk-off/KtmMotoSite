@@ -4,6 +4,8 @@
   padding: 18px 40px 5px 40px;
   letter-spacing: 2px;
   cursor: pointer;
+  max-height: 70px;
+  /* justify-content: right; */
 }
 
 .motoCard__order:hover {
@@ -14,4 +16,5 @@
 }
 .motoCard__order h3 {
   text-align: center;
+  font-size: 170%;
 }
