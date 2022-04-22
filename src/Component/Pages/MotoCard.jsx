@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '../ElementPage/Button';
-import { Header } from '../Header';
+import { Header } from '../ElementPage/Header';
 import './MotoCard.css';
 
 const MotoCard = (props) => {

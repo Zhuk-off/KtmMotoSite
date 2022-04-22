@@ -1,51 +1,18 @@
 import { useParams, Link } from 'react-router-dom';
-import { Component } from 'react';
 import { Input } from '../ElementPage/Input';
-import { Header } from '../Header';
+import { Header } from '../ElementPage/Header';
 import './Order.css';
-import { render } from '@testing-library/react';
 
 const Order = (props) => {
-  // this.state = { test: 'test state' };
   const { id } = useParams();
   const moto = props.moto.find((moto) => moto.id === id);
-  const state = {
-    email: {
-      value:'',
-      type: 'email',
-      errorMessage: 'Введите корректный Email',
-      valid: false,
-      touched: false,
-      validation: {
-        required: true,
-        minLength: 7,
-      }
-
-    },
-    phone: {
-      value:'',
-      type: 'tel',
-      errorMessage: 'Введите корректный номер',
-      valid: false,
-      touched: false,
-      validation: {
-        required: true,
-        email: true,
-      }
-
-    },
-  }
 
   const submitHandler = (event) => {
     event.preventDafault();
-    console.log(event);
-    debugger;
-  };
-
-  const submitButtonHandler = (event) => {
-    console.log('submitButtonHandler');
     // debugger;
   };
+
+  const submitButtonHandler = (event) => {};
 
   return (
     <div className="order">

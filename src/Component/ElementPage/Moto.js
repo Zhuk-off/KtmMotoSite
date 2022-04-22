@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import './Moto.css';
 
 export default (props) => {
-  //   constructor() {
-  //     super();
-  //   }
   let motoClasses = ['Moto'];
-  if (props.buy) {
-    // console.log('IF MOTO    ', props.name, props.buy);
-    motoClasses.push('buy');
-    motoClasses = motoClasses.join(' ');
-    // console.log(motoClasses);
-  }
+  // if (props.buy) {
+  //   // console.log('IF MOTO    ', props.name, props.buy);
+  //   motoClasses.push('buy');
+  //   motoClasses = motoClasses.join(' ');
+  //   // console.log(motoClasses);
+  // }
 
   return (
     <div className={motoClasses}>

@@ -2,7 +2,7 @@ import { Component } from 'react';
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { Mx } from './Component/Pages/Mx';
+import { MainPage } from './Component/Pages/MainPages';
 import { MotoCard } from './Component/Pages/MotoCard';
 import { Order } from './Component/Pages/Order';
 import { fetchMotoData } from './store/actions/action';
@@ -25,20 +25,19 @@ class App extends Component {
   }
 
   renderPages() {
-    let moto = [...this.props.moto];
     const page = [...this.props.page];
     return (
       <React.Fragment>
         <Routes>
           {page.map((page) => {
-            if (page.id != '/') {
+            if (page.id !== '/') {
               return (
                 <React.Fragment key={page.id}>
                   <Route
                     // key={this.index}
                     path={page.path}
                     element={
-                      <Mx
+                      <MainPage
                         key={this.index}
                         category={page.categoryTitle}
                         description={page.description}
@@ -62,14 +61,13 @@ class App extends Component {
                 </React.Fragment>
               );
             } else {
-              console.log('location /');
               return (
                 <React.Fragment key={page.id}>
                   <Route
                     // key={this.index}
                     path={page.path}
                     element={
-                      <Mx
+                      <MainPage
                         key={this.index}
                         category={page.categoryTitle}
                         description={page.description}

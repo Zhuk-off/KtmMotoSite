@@ -6,8 +6,6 @@
   font-style: 24px;
   margin: 0 10px 50px 10px;
   cursor: pointer;
-
-  /* margin-bottom: 50px; */
 }
 .Moto h2 {
   padding-top: 20px;
@@ -30,7 +28,6 @@
 .Moto__button {
   font-family: 'Roboto Condensed', sans-serif;
   width: 90%;
-  /*s color: red; */
   background: rgb(255, 89, 0);
   padding: 5px;
   margin-bottom: 5%;

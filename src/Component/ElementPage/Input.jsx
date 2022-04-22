@@ -9,9 +9,9 @@ const Input = (props) => {
     return !props.valid && props.souldValidate && props.touched;
   }
 
-  if (isInvalid(props)) {
-    cls.push('invalid');
-  }
+  // if (isInvalid(props)) {
+  //   cls.push('invalid');
+  // }
 
   return (
     <div className={cls.join(' ')}>

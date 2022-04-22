@@ -1,8 +1,8 @@
 import React from 'react';
-import classes from './MotoBar.css';
+import './MotoBar.css';
 import { NavLink } from 'react-router-dom';
 
-export default (props) => {
+const MotoBar = (props) => {
   return (
     <div className="motoBar">
       <div className="tab">
@@ -29,3 +29,5 @@ export default (props) => {
     </div>
   );
 };
+
+export { MotoBar };

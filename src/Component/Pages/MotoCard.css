@@ -26,22 +26,6 @@
   padding: 20px 20px 0 20px;
   letter-spacing: 0.8px;
 }
-
-/* .motoCard__order {
-  height: 100%;
-  border: 2px solid rgb(255, 89, 0);
-  padding: 18px 40px 0 40px;
-  letter-spacing: 2px;
-  cursor: pointer;
-}
-
-.motoCard__order:hover {
-  background-color: rgb(244, 244, 244);
-}
-.motoCard__order:active {
-  background-color: rgb(225, 224, 224);
-} */
-
 .motoCard__content {
   display: flex;
   justify-content: space-between;
