@@ -12,6 +12,7 @@ const Input = (props) => {
   // if (isInvalid(props)) {
   //   cls.push('invalid');
   // }
+  console.log('Input props = ', props);
 
   return (
     <div className={cls.join(' ')}>
@@ -20,6 +21,8 @@ const Input = (props) => {
         id={props.id || ''}
         placeholder={props.placeholder || ''}
         name={props.name || ''}
+        value={props.value}
+        onChange={props.onChange}
       />
       <span>{props.errorMessage || 'Введите верное значение'}</span>
 
