@@ -1,17 +1,20 @@
-import { Component } from 'react';
+import { useEffect } from 'react';
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { MainPage } from './Component/Pages/MainPages';
 import { MotoCard } from './Component/Pages/MotoCard';
 import { Order } from './Component/Pages/Order';
-import { fetchMotoData } from './store/actions/action';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { PageNotFound } from './Component/Pages/PageNotFound';
+import { fetchMotoData } from './store/motoSlice';
 
-class App extends Component {
-  motoCategoryFilter = (category) => {
-    let moto = [...this.props.moto];
+const App = () => {
+  const state = useSelector((state) => state.moto);
+  const dispatch = useDispatch();
+
+  const motoCategoryFilter = (category) => {
+    let moto = [...state.moto];
     moto =
       category === '/'
         ? moto
@@ -20,12 +23,12 @@ class App extends Component {
     return moto;
   };
 
-  componentDidMount() {
-    this.props.fetchMotoData();
-  }
+  useEffect(() => {
+    dispatch(fetchMotoData());
+  }, [dispatch]);
 
-  renderPages() {
-    const page = [...this.props.page];
+  const renderPages = () => {
+    const page = [...state.page];
     return (
       <React.Fragment>
         <Routes>
@@ -34,29 +37,23 @@ class App extends Component {
               return (
                 <React.Fragment key={page.id}>
                   <Route
-                    // key={this.index}
                     path={page.path}
                     element={
                       <MainPage
-                        key={this.index}
                         category={page.categoryTitle}
                         description={page.description}
-                        moto={this.motoCategoryFilter(page.id)}
+                        moto={motoCategoryFilter(page.id)}
                         background={page.background}
                       />
                     }
                   />
                   <Route
-                    // key={this.index}
                     path={`${page.path}/:id`}
-                    element={
-                      <MotoCard key={this.index} moto={this.props.moto} />
-                    }
+                    element={<MotoCard moto={state.moto} />}
                   />
                   <Route
-                    // key={this.index}
                     path={`${page.path}/:id/order`}
-                    element={<Order key={this.index} moto={this.props.moto} />}
+                    element={<Order moto={state.moto} />}
                   />
                 </React.Fragment>
               );
@@ -64,14 +61,12 @@ class App extends Component {
               return (
                 <React.Fragment key={page.id}>
                   <Route
-                    // key={this.index}
                     path={page.path}
                     element={
                       <MainPage
-                        key={this.index}
                         category={page.categoryTitle}
                         description={page.description}
-                        moto={this.motoCategoryFilter(page.id)}
+                        moto={motoCategoryFilter(page.id)}
                         background={page.background}
                       />
                     }
@@ -84,31 +79,13 @@ class App extends Component {
         </Routes>
       </React.Fragment>
     );
-  }
-
-  render() {
-    return (
-      <div className="App">
-        {this.props.loading && this.props.page.length !== 0
-          ? null
-          : this.renderPages()}
-      </div>
-    );
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    loading: state.generalReducer.loading,
-    moto: state.generalReducer.moto,
-    page: state.generalReducer.page,
   };
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchMotoData: () => dispatch(fetchMotoData()),
-  };
-}
+  return (
+    <div className="App">
+      {state.loading && state.page.length !== 0 ? null : renderPages()}
+    </div>
+  );
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

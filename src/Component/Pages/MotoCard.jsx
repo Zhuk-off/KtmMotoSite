@@ -5,7 +5,6 @@ import './MotoCard.css';
 
 const MotoCard = (props) => {
   const { id } = useParams();
-  console.log(useParams());
   const moto = props.moto.find((moto) => moto.id === id);
   return (
     <div>
