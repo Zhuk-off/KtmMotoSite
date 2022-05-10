@@ -2,7 +2,7 @@ import React from 'react';
 import './MotoBar.css';
 import { NavLink } from 'react-router-dom';
 
-const MotoBar = (props) => {
+const MotoBar = () => {
   return (
     <div className="motoBar">
       <div className="tab">

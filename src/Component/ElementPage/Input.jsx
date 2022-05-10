@@ -3,16 +3,10 @@ import './Input.css';
 
 const Input = (props) => {
   const cls = ['Input'];
-  //   console.log(cls, props);
 
-  function isInvalid(props) {
-    return !props.valid && props.souldValidate && props.touched;
-  }
-
-  // if (isInvalid(props)) {
-  //   cls.push('invalid');
+  // function isInvalid(props) {
+  //   return !props.valid && props.souldValidate && props.touched;
   // }
-  console.log('Input props = ', props);
 
   return (
     <div className={cls.join(' ')}>
@@ -25,10 +19,6 @@ const Input = (props) => {
         onChange={props.onChange}
       />
       <span>{props.errorMessage || 'Введите верное значение'}</span>
-
-      {/* {isInvalid(props) ? (
-        <span>{props.errorMessage || 'Введите верное значение'}</span>
-      ) : null} */}
     </div>
   );
 };

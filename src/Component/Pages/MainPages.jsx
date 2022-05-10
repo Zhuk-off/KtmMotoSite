@@ -14,7 +14,7 @@ const MainPage = (props) => {
       />
       <MotoBar />
 
-      <MotoList moto={moto} category={props.category} />
+      <MotoList moto={moto} />
     </div>
   );
 };
