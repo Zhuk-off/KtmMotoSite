@@ -1,0 +1,25 @@
+import styledComponents from 'styled-components';
+
+export const StyledButton = styledComponents.div`
+
+    height: 100%;
+    border: 2px solid rgb(255, 89, 0);
+    padding: 18px 40px 5px 40px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    max-height: 70px;
+ 
+  &:hover {
+    background-color: rgb(244, 244, 244);
+  }
+
+  &:active {
+    background-color: rgb(225, 224, 224);
+  }
+
+  & h3 {
+    text-align: center;
+    font-size: 170%;
+    color: black
+  }
+`;

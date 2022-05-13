@@ -1,10 +1,10 @@
 import React from 'react';
-import './MotoBar.css';
 import { NavLink } from 'react-router-dom';
+import { StyledMotoBar } from '../styles/ElementPages.styled/MotoBar.styled';
 
 const MotoBar = () => {
   return (
-    <div className="motoBar">
+    <StyledMotoBar>
       <div className="tab">
         <NavLink to="/mx">MX</NavLink>
       </div>
@@ -26,7 +26,7 @@ const MotoBar = () => {
       <div className="tab ">
         <NavLink to="/supermoto">Supermoto</NavLink>
       </div>
-    </div>
+    </StyledMotoBar>
   );
 };
 

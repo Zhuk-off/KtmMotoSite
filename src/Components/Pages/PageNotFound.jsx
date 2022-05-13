@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button } from '../ElementPage/Button';
-import './PageNotFound.css';
+import { StyledPageNotFound } from '../styles/Pages.styled/PageNotFound.styled';
 
 const PageNotFound = () => {
   const pages = useSelector((state) => state.moto.page);
@@ -10,13 +10,13 @@ const PageNotFound = () => {
   if (lengthForDisplayToStart === 0) {
     return (
       <div>
-        <h1>Загрузка ...</h1>
+        <StyledPageNotFound>Загрузка ...</StyledPageNotFound>
       </div>
     );
   } else {
     return (
       <div>
-        <h1>Страница не найдена</h1>
+        <StyledPageNotFound>Страница не найдена</StyledPageNotFound>
         <Link to="/">
           <Button title="Назад на главную" />
         </Link>

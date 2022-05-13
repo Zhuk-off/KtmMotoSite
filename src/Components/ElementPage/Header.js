@@ -1,4 +1,7 @@
-import './Header.css';
+import {
+  StyledHeader,
+  StyledHeaderText,
+} from '../styles/ElementPages.styled/Header.styled';
 
 const Header = (props) => {
   let models;
@@ -19,20 +22,15 @@ const Header = (props) => {
     models = '';
   }
   return (
-    <div
-      className="pageHeading"
-      style={{
-        backgroundImage: 'url(' + props.background + ')',
-      }}
-    >
-      <div className="pageHeading__text">
+    <StyledHeader bg={'url(' + props.background + ')'}>
+      <StyledHeaderText>
         <h1>{props.category} </h1>
         <h2>{props.description}</h2>
         <h3>
           {props.length} {models}
         </h3>
-      </div>
-    </div>
+      </StyledHeaderText>
+    </StyledHeader>
   );
 };
 

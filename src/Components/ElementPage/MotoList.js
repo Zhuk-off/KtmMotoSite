@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
+import { StyledMotoList } from '../styles/ElementPages.styled/MotoList.styled';
 import { Moto } from './Moto';
-import './MotoList.css';
 
 const MotoList = (props) => {
   const moto = props.moto;
 
   return (
-    <div className="motoList">
+    <StyledMotoList>
       {moto.map((moto) => {
         return (
           <Link key={moto.id} to={`/${moto.category}/${moto.id}`} moto={moto}>
@@ -14,7 +14,7 @@ const MotoList = (props) => {
           </Link>
         );
       })}
-    </div>
+    </StyledMotoList>
   );
 };
 

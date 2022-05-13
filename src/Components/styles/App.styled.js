@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@font-face {
-  font-family: 'Bebas Neue';
-  src: url('./fonts/Bebas\ Neue\ Cyrillic.ttf');
-}
+import styledComponents from 'styled-components';
+
+export const StyledApp = styledComponents.div`
 
 h1,
 h2,
@@ -32,6 +30,4 @@ h3 {
   text-align: center;
 }
 
-.listBuy {
-  text-align: left;
-}
+`;

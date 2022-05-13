@@ -1,9 +1,15 @@
 import { useParams, Link } from 'react-router-dom';
 import { Input } from '../ElementPage/Input';
 import { Header } from '../ElementPage/Header';
-import './Order.css';
 import React, { useState } from 'react';
 import { postOrderForm } from '../Axios/postOrderForm';
+import {
+  StyledOrder,
+  StyledOrderBack,
+  StyledOrderContainer,
+  StyledOrderForm,
+  StyledOrderUserInfo,
+} from '../styles/Pages.styled/Order.styled';
 
 const Order = (props) => {
   const { id } = useParams();
@@ -82,18 +88,18 @@ const Order = (props) => {
   };
 
   return (
-    <div className="order">
+    <StyledOrder>
       <Header background={moto.background} />
-      <form className="order__form" onSubmit={submitHandler}>
-        <div className="order__container">
-          <div className="order__img">
+      <StyledOrderForm onSubmit={submitHandler}>
+        <StyledOrderContainer>
+          <div>
             <img src={moto.photolink} alt={moto.name} />
           </div>
-          <div className="order__userInfo">
+          <StyledOrderUserInfo>
             <Link to={`/${moto.category}/${id}`}>
-              <div className="order__back">
+              <StyledOrderBack>
                 <p>x</p>
-              </div>
+              </StyledOrderBack>
             </Link>
 
             <h2>
@@ -102,10 +108,10 @@ const Order = (props) => {
                 : dataForm.formOrderTitle}
             </h2>
             {sendFormStatus ? renderSendForm() : renderOrderForm()}
-          </div>
-        </div>
-      </form>
-    </div>
+          </StyledOrderUserInfo>
+        </StyledOrderContainer>
+      </StyledOrderForm>
+    </StyledOrder>
   );
 };
 

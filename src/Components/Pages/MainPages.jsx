@@ -1,5 +1,5 @@
 import { Header } from '../ElementPage/Header';
-import { MotoBar } from '../ElementPage/MotoBar/MotoBar';
+import { MotoBar } from '../ElementPage/MotoBar';
 import { MotoList } from '../ElementPage/MotoList';
 
 const MainPage = (props) => {

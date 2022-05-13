@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import React from 'react';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { MainPage } from './Component/Pages/MainPages';
-import { MotoCard } from './Component/Pages/MotoCard';
-import { Order } from './Component/Pages/Order';
+import { MainPage } from './Components/Pages/MainPages';
+import { MotoCard } from './Components/Pages/MotoCard';
+import { Order } from './Components/Pages/Order';
 import { useDispatch, useSelector } from 'react-redux';
-import { PageNotFound } from './Component/Pages/PageNotFound';
+import { PageNotFound } from './Components/Pages/PageNotFound';
 import { fetchMotoData } from './store/motoSlice';
+import { StyledApp } from './Components/styles/App.styled';
+import Helmet from 'react-helmet';
 
 const App = () => {
   const state = useSelector((state) => state.moto);
@@ -83,9 +84,25 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <StyledApp>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+          rel="stylesheet"
+        />
+        <style type="text/css">
+          {`
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('./fonts/BebasNeueCyrillic.ttf');
+}
+}
+      `}
+        </style>
+      </Helmet>
+      {/* <GlobalStyles /> */}
       {state.loading && state.page.length !== 0 ? null : renderPages()}
-    </div>
+    </StyledApp>
   );
 };
 

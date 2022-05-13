@@ -2,8 +2,18 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '../ElementPage/Button';
 import { Header } from '../ElementPage/Header';
-import './MotoCard.css';
 import { PageNotFound } from './PageNotFound';
+import {
+  StyledMotoCard,
+  StyledMotoCardContent,
+  StyledMotoCardDescription,
+  StyledMotoCardHeader,
+  StyledMotoCardHeaderContent,
+  StyledMotoCardName,
+  StyledMotoCardPic,
+  StyledMotoCardPrice,
+  StyledMotoCardPricearea,
+} from '../styles/Pages.styled/MotoCard.styled';
 
 const MotoCard = (props) => {
   const { id } = useParams();
@@ -13,16 +23,16 @@ const MotoCard = (props) => {
     return (
       <div>
         <Header background={moto.background} />
-        <div className="motoCard">
-          <div className="motoCard__header">
-            <div className="motoCard__headerContent">
-              <div className="motoCard__name">
+        <StyledMotoCard>
+          <StyledMotoCardHeader>
+            <StyledMotoCardHeaderContent>
+              <StyledMotoCardName>
                 <h1>{moto.name}</h1>
-              </div>
-              <div className="motoCard__pricearea">
-                <div className="motoCard__price">
+              </StyledMotoCardName>
+              <StyledMotoCardPricearea>
+                <StyledMotoCardPrice>
                   <h2>{moto.price}</h2>
-                </div>
+                </StyledMotoCardPrice>
                 <Link
                   key={id}
                   to={`/${moto.category}/${moto.id}/order`}
@@ -30,22 +40,22 @@ const MotoCard = (props) => {
                 >
                   <Button title={'Заказать'} />
                 </Link>
-              </div>
-            </div>
-          </div>
-          <div className="motoCard__content">
-            <div className="motoCard__pic">
+              </StyledMotoCardPricearea>
+            </StyledMotoCardHeaderContent>
+          </StyledMotoCardHeader>
+          <StyledMotoCardContent>
+            <StyledMotoCardPic>
               <img src={moto.photolink} alt={moto.name} />
-            </div>
-            <div className="motoCard__description">
+            </StyledMotoCardPic>
+            <StyledMotoCardDescription>
               <h2>{moto.titleCard}</h2>
               <p>{moto.descriptionMoto}</p>
-            </div>
-          </div>
+            </StyledMotoCardDescription>
+          </StyledMotoCardContent>
           <Link to={`/${moto.category}`}>
             <Button title={'Вернуться назад - Посмотреть другие модели KTM'} />
           </Link>
-        </div>
+        </StyledMotoCard>
       </div>
     );
   } else {

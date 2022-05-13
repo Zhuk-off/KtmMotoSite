@@ -1,15 +1,9 @@
 import React from 'react';
-import './Input.css';
+import { StyledImput } from '../styles/ElementPages.styled/Input.styled';
 
 const Input = (props) => {
-  const cls = ['Input'];
-
-  // function isInvalid(props) {
-  //   return !props.valid && props.souldValidate && props.touched;
-  // }
-
   return (
-    <div className={cls.join(' ')}>
+    <StyledImput>
       <input
         type={props.type || 'text'}
         id={props.id || ''}
@@ -19,7 +13,7 @@ const Input = (props) => {
         onChange={props.onChange}
       />
       <span>{props.errorMessage || 'Введите верное значение'}</span>
-    </div>
+    </StyledImput>
   );
 };
 
