@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import React from 'react';
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { MainPage } from './Component/Pages/MainPages';
-import { MotoCard } from './Component/Pages/MotoCard';
-import { Order } from './Component/Pages/Order';
+import { MainPage } from './Components/Pages/MainPages/MainPages';
+import { MotoCard } from './Components/Pages/MotoCard';
+import { Order } from './Components/Pages/Order';
 import { useDispatch, useSelector } from 'react-redux';
-import { PageNotFound } from './Component/Pages/PageNotFound';
+import { PageNotFound } from './Components/Pages/PageNotFound';
 import { fetchMotoData } from './store/motoSlice';
 
 const App = () => {

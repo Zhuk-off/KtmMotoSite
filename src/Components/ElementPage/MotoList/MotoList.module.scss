@@ -1,0 +1,17 @@
+.list {
+  text-align: center;
+}
+
+a {
+  color: black;
+  &:visited {
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
