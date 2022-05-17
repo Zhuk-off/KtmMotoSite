@@ -26,22 +26,24 @@
     &:hover {
       background-color: rgb(255, 60, 0);
     }
+    &:disabled {
+      background-color: #ccc;
+    }
   }
 }
 
 .userInfo {
   border: 1px solid #ccc;
   width: 400px;
-  height: 400px;
+  height: 430px;
   & textarea {
+    transition: all 300ms ease-in-out;
     font-size: larger;
     color: #888;
-    margin: 0 10px 10px 10px;
-
+    margin: 0 10px 0px 10px;
     border: 1px solid #ccc;
     width: 95%;
     padding: 10px;
-    margin-bottom: 10px;
     &:focus {
       border: 1px solid #000;
     }
@@ -72,4 +74,38 @@
   & p {
     color: #888;
   }
+}
+
+Input {
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+}
+.Input input {
+  font-size: larger;
+  color: #888;
+  border: 1px solid #ccc;
+  width: 95%;
+  box-sizing: border-box;
+  transition: all 300ms ease-in-out;
+}
+.Input input:focus {
+  border: 1px solid #000;
+}
+
+.Input.invalid input {
+  border: 1px solid red;
+  margin-bottom: 0;
+}
+span {
+  display: block;
+  height: 15px;
+  visibility: visible;
+  padding-left: 10px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  color: red;
+}
+.Input.invalid span {
+  color: red;
+  visibility: visible;
 }
