@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { postOrderForm } from '../../Axios/postOrderForm';
 import { useForm } from 'react-hook-form';
 
+export let dataOrderForTest = {};
+
 const Order = (props) => {
   const { id } = useParams();
   const moto = props.moto.find((moto) => moto.id === id);
@@ -30,6 +32,7 @@ const Order = (props) => {
     // console.log('Отправленное имя: ' + JSON.stringify(data));
     setSendFormStatus(true);
     postOrderForm(JSON.stringify(data));
+    dataOrderForTest = data;
   };
 
   const handleChange = (event) => {
@@ -63,6 +66,7 @@ const Order = (props) => {
             type="text"
             id="userName"
             placeholder="Ваши имя и фамилия"
+            data-testid="userName"
           />
           <span>{errors?.userName && errors?.userName?.message}</span>
         </div>
@@ -81,6 +85,7 @@ const Order = (props) => {
             id="phone"
             placeholder="Номер телефона*"
             name="phone"
+            data-testid="phone"
           />
           <span>{errors?.phone && errors?.phone?.message}</span>
         </div>
@@ -96,6 +101,7 @@ const Order = (props) => {
             type="text"
             id="email"
             placeholder="Ваш email*"
+            data-testid="email"
           />
           <span>{errors?.email && errors?.email?.message}</span>
         </div>
@@ -103,15 +109,16 @@ const Order = (props) => {
           <textarea
             {...register('message')}
             id="message"
-            rows="2"
-            cols="5"
+            data-testid="message"
+            rows={2}
+            cols={5}
             value={messageTextArea.message}
             onChange={(event) => handleChange(event)}
           ></textarea>
           <span></span>
         </div>
 
-        <button type="submit" disabled={!isValid}>
+        <button type="submit" disabled={!isValid} data-testid="send">
           Отправить заявку
         </button>
       </>
@@ -121,7 +128,11 @@ const Order = (props) => {
   return (
     <div className={styles.order}>
       <Header background={moto.background} />
-      <form className={styles.form} onSubmit={handleSubmit(submitHandler)}>
+      <form
+        className={styles.form}
+        onSubmit={handleSubmit(submitHandler)}
+        data-testid="form"
+      >
         <div className={styles.container}>
           <div>
             <img src={moto.photolink} alt={moto.name} />

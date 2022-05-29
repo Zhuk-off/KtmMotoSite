@@ -9,7 +9,9 @@ import { PageNotFound } from './Components/Pages/PageNotFound';
 import { fetchMotoData } from './store/motoSlice';
 
 const App = () => {
-  const state = useSelector((state) => state.moto);
+  let state = useSelector((state) => state);
+  console.log('State ---', state);
+  state = state.moto;
   const dispatch = useDispatch();
 
   const motoCategoryFilter = (category) => {

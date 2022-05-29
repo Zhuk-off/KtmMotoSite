@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getPagesArray } from '../../../store/selectors/getPagesArray/getPagesArray';
 import { Button } from '../../ElementPage/Button';
 import './PageNotFound.module.scss';
 
 const PageNotFound = () => {
-  const pages = useSelector((state) => state.moto.page);
+  const pages = useSelector(getPagesArray);
   const lengthForDisplayToStart = pages.length;
 
   if (lengthForDisplayToStart === 0) {

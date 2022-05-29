@@ -4,6 +4,7 @@ import { MotoList } from '../../ElementPage/MotoList/index';
 
 const MainPage = (props) => {
   const moto = props.moto;
+  console.log(moto);
   return (
     <div>
       <Header

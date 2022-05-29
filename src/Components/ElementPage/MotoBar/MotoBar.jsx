@@ -39,7 +39,11 @@ const MotoBar = () => {
         </NavLink>
       </div>
       <div className={styles.tab}>
-        <NavLink to="/supermoto" className={isActiveNameForCssModule}>
+        <NavLink
+          to="/supermoto"
+          data-testid="supermoto"
+          className={isActiveNameForCssModule}
+        >
           Supermoto
         </NavLink>
       </div>

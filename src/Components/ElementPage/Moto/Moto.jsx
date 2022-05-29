@@ -1,10 +1,9 @@
 import styles from './Moto.module.scss';
 
 const Moto = (props) => {
-  let motoClasses = styles.Moto;
-
+  // console.log('motoMoto Data ===', props);
   return (
-    <div className={motoClasses}>
+    <div className={styles.Moto}>
       <h2>{props.name}</h2>
       <img src={props.img} alt={`${props.name}`} />
     </div>

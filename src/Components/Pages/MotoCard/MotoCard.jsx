@@ -5,9 +5,11 @@ import styles from './MotoCard.module.scss';
 import { PageNotFound } from '../PageNotFound';
 
 const MotoCard = (props) => {
+  // console.log('props-----', props);
   const { id } = useParams();
   const moto = props.moto.find((moto) => moto.id === id);
-
+  // console.log('id-----', id);
+  // console.log('moto find id-----', moto);
   if (moto !== undefined) {
     return (
       <div>
@@ -22,11 +24,7 @@ const MotoCard = (props) => {
                 <div className={styles.price}>
                   <h2>{moto.price}</h2>
                 </div>
-                <Link
-                  key={id}
-                  to={`/${moto.category}/${moto.id}/order`}
-                  moto={moto}
-                >
+                <Link key={id} to={`/${moto.category}/${moto.id}/order`}>
                   <Button title={'Заказать'} />
                 </Link>
               </div>
