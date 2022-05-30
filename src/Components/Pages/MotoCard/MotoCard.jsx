@@ -5,11 +5,8 @@ import styles from './MotoCard.module.scss';
 import { PageNotFound } from '../PageNotFound';
 
 const MotoCard = (props) => {
-  // console.log('props-----', props);
   const { id } = useParams();
   const moto = props.moto.find((moto) => moto.id === id);
-  // console.log('id-----', id);
-  // console.log('moto find id-----', moto);
   if (moto !== undefined) {
     return (
       <div>

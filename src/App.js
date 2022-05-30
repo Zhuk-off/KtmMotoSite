@@ -10,7 +10,6 @@ import { fetchMotoData } from './store/motoSlice';
 
 const App = () => {
   let state = useSelector((state) => state);
-  console.log('State ---', state);
   state = state.moto;
   const dispatch = useDispatch();
 

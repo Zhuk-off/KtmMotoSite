@@ -118,7 +118,7 @@ const Order = (props) => {
           <span></span>
         </div>
 
-        <button type="submit" disabled={!isValid} data-testid="send">
+        <button type="submit" disabled={!isValid} id="send" data-testid="send">
           Отправить заявку
         </button>
       </>
