@@ -1,12 +1,13 @@
-import { useParams, Link } from 'react-router-dom';
-import { Button } from '../../ElementPage/Button';
-import { Header } from '../../ElementPage/Header';
-import styles from './MotoCard.module.scss';
-import { PageNotFound } from '../PageNotFound';
+import { useParams, Link } from 'react-router-dom'
+import { Button } from '../../ElementPage/Button'
+import { Header } from '../../ElementPage/Header'
+import styles from './MotoCard.module.scss'
+import { PageNotFound } from '../PageNotFound'
+import React from 'react'
 
-const MotoCard = (props) => {
-  const { id } = useParams();
-  const moto = props.moto.find((moto) => moto.id === id);
+const MotoCard = (props: { any?: unknown; moto: moto[] }) => {
+  const { id } = useParams()
+  const moto = props.moto.find((moto) => moto.id === id)
   if (moto !== undefined) {
     return (
       <div>
@@ -41,14 +42,14 @@ const MotoCard = (props) => {
           </Link>
         </div>
       </div>
-    );
+    )
   } else {
     return (
       <>
         <PageNotFound />;
       </>
-    );
+    )
   }
-};
+}
 
-export { MotoCard };
+export { MotoCard }

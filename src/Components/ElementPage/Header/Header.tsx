@@ -1,22 +1,28 @@
-import styles from './Header.module.scss';
+import React from 'react'
+import styles from './Header.module.scss'
 
-const Header = (props) => {
-  let models;
+const Header = (props: {
+  category?: string
+  description?: string
+  length?: number
+  background: string
+}) => {
+  let models
   switch (props.length) {
     case 1:
-      models = 'модель';
-      break;
+      models = 'модель'
+      break
     case 2:
     case 3:
     case 4:
-      models = 'модели';
-      break;
+      models = 'модели'
+      break
     default:
-      models = 'моделей';
-      break;
+      models = 'моделей'
+      break
   }
   if (props.length === undefined) {
-    models = '';
+    models = ''
   }
   return (
     <div
@@ -33,7 +39,7 @@ const Header = (props) => {
         </h3>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { Header };
+export { Header }

@@ -1,58 +1,71 @@
-import { useParams, Link } from 'react-router-dom';
-import { Header } from '../../ElementPage/Header';
-import styles from './Order.module.scss';
-import { useState } from 'react';
-import { postOrderForm } from '../../Axios/postOrderForm';
-import { useForm } from 'react-hook-form';
+import { useParams, Link } from 'react-router-dom'
+import { Header } from '../../ElementPage/Header'
+import styles from './Order.module.scss'
+import { useState } from 'react'
+import { postOrderForm } from '../../Axios/postOrderForm'
+import { useForm } from 'react-hook-form'
+import React from 'react'
+import { PageNotFound } from '../PageNotFound'
 
-export let dataOrderForTest = {};
+export let dataOrderForTest = {}
 
-const Order = (props) => {
-  const { id } = useParams();
-  const moto = props.moto.find((moto) => moto.id === id);
+const Order = (props: { any?: unknown; moto: moto[] }) => {
+  const { id } = useParams()
+  const moto = props.moto.find((moto) => moto.id === id)
+
   const [messageTextArea, setMessageTextArea] = useState({
-    message: `Я хочу приобрести мотоцикл ${moto.name}`,
-  });
-  const [sendFormStatus, setSendFormStatus] = useState(false);
+    message: `Я хочу приобрести мотоцикл ${moto ? moto.name : ''}`,
+  })
+
+  const [sendFormStatus, setSendFormStatus] = useState(false)
+
   const dataForm = {
     formOrderTitle: 'Обратная связь',
     buttonOrderTitile: 'Отправить заявку',
     formSendTitle: 'Ваша заявка отпралена',
     buttonSendTitile: 'Вернуться назад',
-  };
+  }
+
   const {
     register,
     formState: { errors, isValid },
     handleSubmit,
   } = useForm({
     mode: 'onChange',
-  });
+  })
 
-  const submitHandler = (data) => {
-    // console.log('Отправленное имя: ' + JSON.stringify(data));
-    setSendFormStatus(true);
-    postOrderForm(JSON.stringify(data));
-    dataOrderForTest = data;
-  };
+  const submitHandler = (data: any) => {
+    setSendFormStatus(true)
+    postOrderForm(JSON.stringify(data))
+    dataOrderForTest = data
+  }
 
-  const handleChange = (event) => {
-    setMessageTextArea({
-      ...messageTextArea,
-      [event.target.id]: event.target.value,
-    });
-  };
+  const handleChange = (event: any) => {
+    if (event) {
+      setMessageTextArea({
+        ...messageTextArea,
+        [event.target.id]: event.target.value,
+      })
+    }
+  }
 
+  if (!moto) {
+    console.error('Order moto = undefined')
+    return (
+      <div>
+        <PageNotFound />
+      </div>
+    )
+  }
   const renderSendForm = () => {
-    // console.log('renderSendForm', sendFormStatus, dataForm.formSendTitle);
-
     return (
       <>
         <Link to={`/${moto.category}/${id}`}>
           <button type="submit">{dataForm.buttonSendTitile}</button>
         </Link>
       </>
-    );
-  };
+    )
+  }
 
   const renderOrderForm = () => {
     return (
@@ -122,8 +135,8 @@ const Order = (props) => {
           Отправить заявку
         </button>
       </>
-    );
-  };
+    )
+  }
 
   return (
     <div className={styles.order}>
@@ -154,7 +167,7 @@ const Order = (props) => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export { Order };
+export { Order }
