@@ -1,4 +1,6 @@
-export const getPagesArray = (state: state | undefined): page[] | motoState => {
+export const getPagesArray = (
+  state: IState | undefined
+): IPage[] | IMotoState => {
   return (
     state?.page || {
       loading: false,

@@ -1,12 +1,15 @@
 import React from 'react'
 import styles from './Header.module.scss'
+import { FC } from 'react'
 
-const Header = (props: {
+interface IHeaderProps {
   category?: string
   description?: string
   length?: number
   background: string
-}) => {
+}
+
+const Header: FC<IHeaderProps> = (props) => {
   let models
   switch (props.length) {
     case 1:

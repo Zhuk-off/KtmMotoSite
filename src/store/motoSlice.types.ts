@@ -1,4 +1,4 @@
-interface moto {
+interface IMoto {
   background: string
   buy: boolean
   category: string
@@ -11,7 +11,7 @@ interface moto {
   titleCard: string
 }
 
-interface page {
+interface IPage {
   background: string
   categoryTitle: string
   description: string
@@ -19,14 +19,12 @@ interface page {
   path: string
 }
 
-interface state {
-  moto: moto[]
-  page: page[]
+interface IState {
+  moto: IMoto[]
+  page: IPage[]
 }
 
-type motoState = {
+interface IMotoState extends IState {
   loading: boolean
   error: any
-  moto: moto[]
-  page: page[]
 }

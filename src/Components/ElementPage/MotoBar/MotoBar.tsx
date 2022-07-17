@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './MotoBar.module.scss'
 import { NavLink } from 'react-router-dom'
+import { FC } from 'react'
 
-const MotoBar = () => {
+const MotoBar: FC = () => {
   const activeClassName = styles.active
   const isActiveNameForCssModule = ({ isActive }: { isActive: boolean }) =>
     isActive ? activeClassName : ''

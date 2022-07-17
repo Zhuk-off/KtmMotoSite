@@ -7,8 +7,9 @@ import { Order } from './Components/Pages/Order'
 import { PageNotFound } from './Components/Pages/PageNotFound'
 import { fetchMotoData } from './store/motoSlice'
 import { useAppDispatch, useAppSelector } from './hook'
+import { FC } from 'react'
 
-const App = () => {
+const App: FC = () => {
   const state = useAppSelector((state) => state.moto)
   // const motoState = state.moto;
   const dispatch = useAppDispatch()

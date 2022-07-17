@@ -4,8 +4,9 @@ import { Header } from '../../ElementPage/Header'
 import styles from './MotoCard.module.scss'
 import { PageNotFound } from '../PageNotFound'
 import React from 'react'
+import { FC } from 'react'
 
-const MotoCard = (props: { any?: unknown; moto: moto[] }) => {
+const MotoCard: FC<IMotoArrayProps> = (props) => {
   const { id } = useParams()
   const moto = props.moto.find((moto) => moto.id === id)
   if (moto !== undefined) {

@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Moto } from '../Moto'
 import styles from './MotoList.module.scss'
+import { FC } from 'react'
 
-const MotoList = (props: { any?: unknown; moto: moto[] }) => {
-  const moto = props.moto
+const MotoList: FC<IMotoArrayProps> = ({ moto }) => {
   return (
     <div className={styles.list}>
       {moto.map((moto) => {

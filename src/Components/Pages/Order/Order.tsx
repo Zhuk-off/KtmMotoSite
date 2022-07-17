@@ -6,10 +6,11 @@ import { postOrderForm } from '../../Axios/postOrderForm'
 import { useForm } from 'react-hook-form'
 import React from 'react'
 import { PageNotFound } from '../PageNotFound'
+import { FC } from 'react'
 
 export let dataOrderForTest = {}
 
-const Order = (props: { any?: unknown; moto: moto[] }) => {
+const Order: FC<IMotoArrayProps> = (props) => {
   const { id } = useParams()
   const moto = props.moto.find((moto) => moto.id === id)
 

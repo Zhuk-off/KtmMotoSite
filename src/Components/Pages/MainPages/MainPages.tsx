@@ -2,24 +2,30 @@ import React from 'react'
 import { Header } from '../../ElementPage/Header'
 import { MotoBar } from '../../ElementPage/MotoBar'
 import { MotoList } from '../../ElementPage/MotoList/index'
+import { FC } from 'react'
 
-const MainPage = (props: {
-  moto: moto[]
+interface IMainPageProps {
+  moto: IMoto[]
   category: string
   description: string
   background: string
+}
+
+const MainPage: FC<IMainPageProps> = ({
+  moto,
+  category,
+  description,
+  background,
 }) => {
-  const moto: moto[] = props.moto
   return (
     <div>
       <Header
-        category={props.category}
-        description={props.description}
+        category={category}
+        description={description}
         length={moto.length}
-        background={props.background}
+        background={background}
       />
       <MotoBar />
-
       <MotoList moto={moto} />
     </div>
   )

@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom'
 import { getPagesArray } from '../../../store/selectors/getPagesArray/getPagesArray'
 import { Button } from '../../ElementPage/Button'
 import './PageNotFound.module.scss'
+import { FC } from 'react'
 
-function isMotoState(x: motoState | page[]): x is motoState {
+function isMotoState(x: IMotoState | IPage[]): x is IMotoState {
   return 'loading' in x
 }
 
-const PageNotFound = () => {
+const PageNotFound: FC = () => {
   const pages = useSelector(getPagesArray)
   let lengthForDisplayToStart: number = 0
-  
+
   if (!isMotoState(pages)) {
     lengthForDisplayToStart = pages.length
   } else {

@@ -1,7 +1,12 @@
 import React from 'react'
 import styles from './Button.module.scss'
+import { FC } from 'react'
 
-const Button = ({ title }: { title: string }) => {
+interface IButtonProps {
+  title: string
+}
+
+const Button: FC<IButtonProps> = ({ title }) => {
   return (
     <div className={styles.order}>
       <h3>{title}</h3>
