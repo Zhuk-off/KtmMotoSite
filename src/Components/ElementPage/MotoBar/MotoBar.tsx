@@ -1,10 +1,12 @@
-import styles from './MotoBar.module.scss';
-import { NavLink } from 'react-router-dom';
+import React from 'react'
+import styles from './MotoBar.module.scss'
+import { NavLink } from 'react-router-dom'
+import { FC } from 'react'
 
-const MotoBar = () => {
-  const activeClassName = styles.active;
-  const isActiveNameForCssModule = ({ isActive }) =>
-    isActive ? activeClassName : undefined;
+const MotoBar: FC = () => {
+  const activeClassName = styles.active
+  const isActiveNameForCssModule = ({ isActive }: { isActive: boolean }) =>
+    isActive ? activeClassName : ''
 
   return (
     <div className={styles.motoBar}>
@@ -48,7 +50,7 @@ const MotoBar = () => {
         </NavLink>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { MotoBar };
+export { MotoBar }

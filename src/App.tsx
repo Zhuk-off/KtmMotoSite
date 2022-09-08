@@ -1,34 +1,34 @@
-import { useEffect } from 'react';
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { MainPage } from './Components/Pages/MainPages/MainPages';
-import { MotoCard } from './Components/Pages/MotoCard';
-import { Order } from './Components/Pages/Order';
-import { useDispatch, useSelector } from 'react-redux';
-import { PageNotFound } from './Components/Pages/PageNotFound';
-import { fetchMotoData } from './store/motoSlice';
+import { useEffect } from 'react'
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { MainPage } from './Components/Pages/MainPages/MainPages'
+import { MotoCard } from './Components/Pages/MotoCard'
+import { Order } from './Components/Pages/Order'
+import { PageNotFound } from './Components/Pages/PageNotFound'
+import { fetchMotoData } from './store/motoSlice'
+import { useAppDispatch, useAppSelector } from './hook'
+import { FC } from 'react'
 
-const App = () => {
-  let state = useSelector((state) => state);
-  state = state.moto;
-  const dispatch = useDispatch();
+const App: FC = () => {
+  const state = useAppSelector((state) => state.moto)
+  // const motoState = state.moto;
+  const dispatch = useAppDispatch()
 
-  const motoCategoryFilter = (category) => {
-    let moto = [...state.moto];
+  const motoCategoryFilter = (category: string) => {
+    let moto = [...state.moto]
     moto =
       category === '/'
         ? moto
-        : moto.filter((bike) => bike.category === category);
-
-    return moto;
-  };
+        : moto.filter((bike) => bike.category === category)
+    return moto
+  }
 
   useEffect(() => {
-    dispatch(fetchMotoData());
-  }, [dispatch]);
+    dispatch(fetchMotoData())
+  }, [dispatch])
 
   const renderPages = () => {
-    const page = [...state.page];
+    const page = [...state.page]
     return (
       <React.Fragment>
         <Routes>
@@ -56,7 +56,7 @@ const App = () => {
                     element={<Order moto={state.moto} />}
                   />
                 </React.Fragment>
-              );
+              )
             } else {
               return (
                 <React.Fragment key={page.id}>
@@ -72,21 +72,21 @@ const App = () => {
                     }
                   />
                 </React.Fragment>
-              );
+              )
             }
           })}
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </React.Fragment>
-    );
-  };
+    )
+  }
 
   return (
     <div className="App">
       {state.loading && state.page.length !== 0 ? null : renderPages()}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

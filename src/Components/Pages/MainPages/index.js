@@ -1,1 +1,0 @@
-export { MainPages } from './MainPages';
