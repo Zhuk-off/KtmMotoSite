@@ -1,6 +1,8 @@
+$heightHeading: 40vh;
+
 .pageHeading {
   color: #fff;
-  height: 40vh;
+  height: $heightHeading;
   width: 100vw;
   background-position: center;
   background-repeat: no-repeat;
@@ -8,7 +10,10 @@
 }
 
 .pageHeadingText {
+  height: $heightHeading;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  padding-top: 150px;
   letter-spacing: 0.5px;
 }
