@@ -1,9 +1,9 @@
-import React from 'react'
-import styles from './Button.module.scss'
-import { FC } from 'react'
+import React from 'react';
+import styles from './Button.module.scss';
+import { FC } from 'react';
 
 interface IButtonProps {
-  title: string
+  title: string;
 }
 
 const Button: FC<IButtonProps> = ({ title }) => {
@@ -11,7 +11,7 @@ const Button: FC<IButtonProps> = ({ title }) => {
     <div className={styles.order}>
       <h3>{title}</h3>
     </div>
-  )
-}
+  );
+};
 
-export { Button }
+export { Button };

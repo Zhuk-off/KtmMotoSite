@@ -39,7 +39,7 @@ const MotoCard: FC<IMotoArrayProps> = (props) => {
             </div>
           </div>
           <Link to={`/${moto.category}`}>
-            <Button title={'Вернуться назад - Посмотреть другие модели KTM'} />
+            <Button title={'Вернуться назад к моделям KTM'} />
           </Link>
         </div>
       </div>
