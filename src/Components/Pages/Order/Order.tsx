@@ -1,31 +1,32 @@
-import { useParams, Link } from 'react-router-dom'
-import { Header } from '../../ElementPage/Header'
-import styles from './Order.module.scss'
-import { useState } from 'react'
-import { postOrderForm } from '../../Axios/postOrderForm'
-import { useForm } from 'react-hook-form'
-import React from 'react'
-import { PageNotFound } from '../PageNotFound'
-import { FC } from 'react'
+import { useParams, Link } from 'react-router-dom';
+import { Header } from '../../ElementPage/Header';
+import styles from './Order.module.scss';
+import { useState } from 'react';
+import { postOrderForm } from '../../Axios/postOrderForm';
+import { useForm } from 'react-hook-form';
+import React from 'react';
+import { PageNotFound } from '../PageNotFound';
+import { FC } from 'react';
+import { Button } from '../../ElementPage/Button';
 
-export let dataOrderForTest = {}
+export let dataOrderForTest = {};
 
 const Order: FC<IMotoArrayProps> = (props) => {
-  const { id } = useParams()
-  const moto = props.moto.find((moto) => moto.id === id)
+  const { id } = useParams();
+  const moto = props.moto.find((moto) => moto.id === id);
 
   const [messageTextArea, setMessageTextArea] = useState({
     message: `Я хочу приобрести мотоцикл ${moto ? moto.name : ''}`,
-  })
+  });
 
-  const [sendFormStatus, setSendFormStatus] = useState(false)
+  const [sendFormStatus, setSendFormStatus] = useState(false);
 
   const dataForm = {
     formOrderTitle: 'Обратная связь',
-    buttonOrderTitile: 'Отправить заявку',
+    buttonOrderTitle: 'Отправить заявку',
     formSendTitle: 'Ваша заявка отпралена',
-    buttonSendTitile: 'Вернуться назад',
-  }
+    buttonSendTitle: 'Вернуться назад',
+  };
 
   const {
     register,
@@ -33,40 +34,40 @@ const Order: FC<IMotoArrayProps> = (props) => {
     handleSubmit,
   } = useForm({
     mode: 'onChange',
-  })
+  });
 
   const submitHandler = (data: any) => {
-    setSendFormStatus(true)
-    postOrderForm(JSON.stringify(data))
-    dataOrderForTest = data
-  }
+    setSendFormStatus(true);
+    postOrderForm(JSON.stringify(data));
+    dataOrderForTest = data;
+  };
 
   const handleChange = (event: any) => {
     if (event) {
       setMessageTextArea({
         ...messageTextArea,
         [event.target.id]: event.target.value,
-      })
+      });
     }
-  }
+  };
 
   if (!moto) {
-    console.error('Order moto = undefined')
+    console.error('Order moto = undefined');
     return (
       <div>
         <PageNotFound />
       </div>
-    )
+    );
   }
   const renderSendForm = () => {
     return (
       <>
         <Link to={`/${moto.category}/${id}`}>
-          <button type="submit">{dataForm.buttonSendTitile}</button>
+          <button type="submit">{dataForm.buttonSendTitle}</button>
         </Link>
       </>
-    )
-  }
+    );
+  };
 
   const renderOrderForm = () => {
     return (
@@ -133,28 +134,28 @@ const Order: FC<IMotoArrayProps> = (props) => {
         </div>
 
         <button type="submit" disabled={!isValid} id="send" data-testid="send">
-          Отправить заявку
+          {dataForm.buttonOrderTitle}
         </button>
       </>
-    )
-  }
+    );
+  };
 
   return (
     <div className={styles.order}>
       <Header background={moto.background} />
-      <form
-        className={styles.form}
-        onSubmit={handleSubmit(submitHandler)}
-        data-testid="form"
-      >
-        <div className={styles.container}>
-          <div>
-            <img src={moto.photolink} alt={moto.name} />
-          </div>
+      <div className={styles.container}>
+        <div className={styles.image}>
+          <img src={moto.photolink} alt={moto.name} />
+        </div>
+        <form
+          className={styles.form}
+          onSubmit={handleSubmit(submitHandler)}
+          data-testid="form"
+        >
           <div className={styles.userInfo}>
             <Link to={`/${moto.category}/${id}`}>
               <div className={styles.back}>
-                <p>x</p>
+                <h3>Закрыть</h3>
               </div>
             </Link>
 
@@ -165,10 +166,10 @@ const Order: FC<IMotoArrayProps> = (props) => {
             </h2>
             {sendFormStatus ? renderSendForm() : renderOrderForm()}
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export { Order }
+export { Order };
