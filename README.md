@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Website with KTM motorcycle models (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It is a SPA website featuring KTM motorcycle models, descriptions, and a simple order form.
 
-## Available Scripts
+Stack and what I did: Written in React. Used React Route v6 library for navigation. Created product card components, etc. Used Google's Firebase and their Realtime Database to store the database. Used Axios for sending queries. Used Redux state manager. Configured a form to send to the server. Revamped it from Redux to Redux Toolkit with the Thunk library embedded so that it could work better with asynchronous requests. In a separate branch, I used Styled Components for styles. In the main style branch, I use CSS modules. For validating the submission form, I used React Hook Form. Wrote tests on Jest. Nearly 40 unit tests for components, asynchronous code, integration tests for pages with components, on Routing, Redux, and Selector for Redux. Snapshot tests for simple components. E2E tests for sending the form to the server used webdriverIO. With Cypress tests on link navigation, form validation, and form submission. Used Storybook to create a visual library of components with their descriptions for reuse. Added type to the TypeScript project, prescribed types.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### [https://ktm-moto-site-w2l3.vercel.app/](https://ktm-moto-site-w2l3.vercel.app/)
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
 
-### `npm run build`
+```bash
+git clone https://github.com/Zhuk-off/KtmMotoSite.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contacts
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You can contact me by email: zhukoffweb@gmail.com

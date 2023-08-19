@@ -2,6 +2,15 @@
   "name": "ktm-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "wdio": "wdio run wdio.conf.js",
+    "test:cypress": "cypress open",
+    "build-tsc": "tsc"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "@types/classnames": "^2.3.1",
@@ -22,15 +31,6 @@
     "redux-thunk": "^2.4.1",
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "wdio": "wdio run wdio.conf.js",
-    "test:cypress": "cypress open",
-    "build-tsc": "tsc"
   },
   "eslintConfig": {
     "extends": [
